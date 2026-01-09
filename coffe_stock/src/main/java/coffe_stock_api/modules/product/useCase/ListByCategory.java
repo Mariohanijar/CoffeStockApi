@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import coffe_stock_api.modules.product.dto.ProductResponseDTO;
 import coffe_stock_api.modules.product.entitie.ProductEntity;
 import coffe_stock_api.modules.product.repository.ProductRepository;
 
@@ -14,7 +15,7 @@ public class ListByCategory {
     @Autowired
     ProductRepository productRepository;
 
-    public List<ProductEntity> execute(String productCategory){
+    public List<ProductResponseDTO> execute(String productCategory){
         
         String categoryToSearch = productCategory.replace("-", " ").trim();
         
@@ -23,6 +24,8 @@ public class ListByCategory {
         if(category.isEmpty()){
             throw new RuntimeException("category "+ productCategory + " was not found in the database");
         }
-        return category;
+        return category.stream()
+                        .map(ProductResponseDTO::fromEntity)
+                        .toList();
     }
 }
