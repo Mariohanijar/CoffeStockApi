@@ -8,6 +8,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import coffe_stock_api.modules.product.dto.ProductConsumeDTO;
+import coffe_stock_api.modules.product.dto.ProductRequestDTO;
+import coffe_stock_api.modules.product.dto.ProductResponseDTO;
 import coffe_stock_api.modules.product.dto.ProductUpdateDTO;
 import coffe_stock_api.modules.product.entitie.ProductEntity;
 import coffe_stock_api.modules.product.useCase.ConsumeProductUseCase;
@@ -55,9 +58,11 @@ public class ProductController {
     private UpdateProductUseCase updateProductUseCase;
 
     @PostMapping("/")
-    public ResponseEntity<Object> post(@Valid @RequestBody ProductEntity product) {
+    public ResponseEntity<Object> post(@Valid @RequestBody ProductRequestDTO product) {
         try {
-            var result = createProductUseCase.execute(product);
+            var newProduct = createProductUseCase.execute(product);
+
+            var result = ProductResponseDTO.fromEntity(newProduct);
             return ResponseEntity.ok(result);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -66,10 +71,10 @@ public class ProductController {
     }
 
     @PatchMapping("/consume") 
-    public ResponseEntity<Object> consume(@RequestBody Map<String, Object> request) {
+    public ResponseEntity<Object> consume(@RequestBody ProductConsumeDTO request) {
         try {
-            String name = (String) request.get("name");
-            int amount = (int) request.get("amount");
+            String name = (String) request.name();
+            int amount = (int) request.quantityToConsume();
 
             var updatedProduct = consumeProductUseCase.execute(name, amount);
             return ResponseEntity.ok(updatedProduct);
