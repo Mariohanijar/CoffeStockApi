@@ -12,8 +12,9 @@ public class CreateProductUseCase {
     @Autowired
     ProductRepository productRepository;
 
-    public ProductEntity execute (ProductRequestDTO product){
-        if(productRepository.existsByNameIgnoreCase(product.name())){
+    
+    public ProductEntity execute(ProductRequestDTO product) {
+        if(productRepository.existsByNameIgnoreCase(product.name())) {
             throw new RuntimeException("Error: It's already exists a product with this name");
         }
         var productEntity = new ProductEntity();
