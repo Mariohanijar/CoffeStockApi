@@ -3,8 +3,21 @@ services:
     container_name: CoffeStock
     image: postgres
     ports:
-      - 5432:5432
+      - "5432:5432"
     environment:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=admin
-      - POSTGRES_DB=admin
+      - POSTGRES_DB=coffe_stock
+
+  app:
+    build: .
+    container_name: api_coffee
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    environment:
+      # Aqui dizemos para a API procurar o serviço 'postgres' em vez de 'localhost'
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/coffe_stock
+      - SPRING_DATASOURCE_USERNAME=admin
+      - SPRING_DATASOURCE_PASSWORD=admin
