@@ -1,5 +1,3 @@
-<img width="852" height="172" alt="image" src="https://github.com/user-attachments/assets/d643efc9-3984-422e-9169-4e029c658fbf" /># CoffeeStock API
-
 This is my first back-end project, developed to manage a coffee shop's inventory efficiently and securely.
 The goal of this project is to master the fundamental pillars of modern Java back-end development.
 
