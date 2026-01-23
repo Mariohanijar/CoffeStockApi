@@ -1,4 +1,4 @@
-#Processo Seletivo – Polícia Civil do Estado do Pará (PCPA)
+##Processo Seletivo – Polícia Civil do Estado do Pará (PCPA)
 Este projeto foi desenvolvido como parte do desafio técnico para o processo seletivo da Polícia Civil do Estado do Pará (PCPA), com foco na avaliação de competências em desenvolvimento back-end.
 
 o desafio consiste no desenvolvimento de uma API simples em Laravel, contemplando um CRUD básico, utilizando Postgres como banco de dados e Docker para padronização do ambiente. Serão considerados diferenciais o uso adequado de Requests e Resources do Laravel, a correta validação das requisições, a aplicação apropriada dos princípios de orientação a objetos, a organização e limpeza do código, bem como o uso correto das bibliotecas disponibilizadas pelo framework Laravel 
@@ -51,7 +51,7 @@ docker compose exec app composer install --optimize-autoloader
 - Certifique-se de que o servidor está rodando: docker compose logs app.
 - Verifique se o seu .env possui APP_URL=http://localhost:8000
 
-# Civil Police of the State of Pará (PCPA) – Selection Process
+## Civil Police of the State of Pará (PCPA) – Selection Process
 
 This project was developed as part of the back-end technical challenge for the selection process of the Civil Police of the State of Pará (PCPA).
 
@@ -64,25 +64,25 @@ The following aspects are considered technical differentiators in this project:
 - Clean, organized, and well-structured code;
 - Correct usage of the libraries and features provided by the Laravel framework.
 
-# Project Overview
+## Project Overview
 
 CoffeeStockAPI is a RESTful API designed for coffee shop inventory management, developed using Laravel 11 and documented with Swagger (OpenAPI).
 
 The API allows efficient control of products, categories, and inventory-related operations through standardized HTTP endpoints.
 
-# Getting Started (Docker Environment)
+## Getting Started (Docker Environment)
 
-## 1. Clone the repository
+### 1. Clone the repository
 git clone https://github.com/Mariohanijar/coffee-inventory-api.git
 cd coffee-inventory-api
 
-## 2. Configure Environment Variables
+### 2. Configure Environment Variables
 cp .env.example .env
 
-## 3. Start the Environment
+### 3. Start the Environment
 docker compose up -d --build
 
-## 4. Configure the Application
+### 4. Configure the Application
 
 Install PHP dependencies:
 docker compose exec app composer install
@@ -96,21 +96,21 @@ docker compose exec app php artisan migrate
 Generate Swagger documentation:
 docker compose exec app php artisan l5-swagger:generate
 
-# Accessing the API Documentation
+## Accessing the API Documentation
 
 After starting the containers, you can access the Swagger interface to test the endpoints:
 
 URL: http://localhost:8000/api/documentation
 
-# Troubleshooting
+## Troubleshooting
 
-## Validation class not found error when creating a product (POST)
+### Validation class not found error when creating a product (POST)
 
 If you receive a server error indicating that validation classes were not found, the dependencies may not have been fully installed inside the container. Fix it by running:
 
 docker compose exec app composer install --optimize-autoloader
 
-## Swagger does not load or shows "Failed to Fetch"
+### Swagger does not load or shows "Failed to Fetch"
 
 - Ensure the application container is running:
 docker compose logs app
