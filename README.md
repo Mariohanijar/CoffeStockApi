@@ -1,4 +1,4 @@
-##Processo Seletivo – Polícia Civil do Estado do Pará (PCPA)
+# Processo Seletivo – Polícia Civil do Estado do Pará (PCPA)
 Este projeto foi desenvolvido como parte do desafio técnico para o processo seletivo da Polícia Civil do Estado do Pará (PCPA), com foco na avaliação de competências em desenvolvimento back-end.
 
 o desafio consiste no desenvolvimento de uma API simples em Laravel, contemplando um CRUD básico, utilizando Postgres como banco de dados e Docker para padronização do ambiente. Serão considerados diferenciais o uso adequado de Requests e Resources do Laravel, a correta validação das requisições, a aplicação apropriada dos princípios de orientação a objetos, a organização e limpeza do código, bem como o uso correto das bibliotecas disponibilizadas pelo framework Laravel 
